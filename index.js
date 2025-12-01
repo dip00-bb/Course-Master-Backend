@@ -3,9 +3,10 @@ import express from 'express'
 import cors from 'cors'
 import cookieParser from 'cookie-parser';
 import { connectDB } from './config/db.js';
+
 const PORT = process.env.PORT || 5000;
 
-
+import authRoute from './routes/auth.routes.js'
 const app = express()
 
 app.use(express.json())
@@ -20,7 +21,7 @@ app.get('/', (req, res) => {
 })
 
 
-
+app.use('/api/auth',authRoute)
 
 const startServer=async ()=>{
     await connectDB(process.env.MONGODB_URI);
