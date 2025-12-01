@@ -14,7 +14,10 @@ app.use(express.json())
 app.use(cookieParser())
 
 
-app.use(cors())
+app.use(cors({
+    origin: "http://localhost:3000",
+    credentials: true
+}))
 
 
 app.get('/', (req, res) => {
@@ -22,11 +25,11 @@ app.get('/', (req, res) => {
 })
 
 
-app.use('/api/auth',authRoute)
+app.use('/api/auth', authRoute)
 
-const startServer=async ()=>{
+const startServer = async () => {
     await connectDB(process.env.MONGODB_URI);
-    app.listen(PORT,()=>console.log("Server Running On:",PORT))
+    app.listen(PORT, () => console.log("Server Running On:", PORT))
 };
 
 startServer()

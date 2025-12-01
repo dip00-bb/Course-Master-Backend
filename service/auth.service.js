@@ -8,7 +8,6 @@ const generateToken = (user) => {
 }
 
 export async function registerUser({ name, email, password }) {
-
     if (!email) {
         throw new Error("Email Require")
     }
@@ -28,6 +27,7 @@ export async function registerUser({ name, email, password }) {
 
 
 export async function loginUser({ email, password }) {
+
     const existUser = await User.find({ email })
 
     if (!existUser) {
