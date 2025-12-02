@@ -3,7 +3,6 @@ import User from "../models/User.js";
 import bcrypt from 'bcrypt'
 
 const generateToken = (user) => {
-    console.log(user._id)
     return jwt.sign({ id: user._id, role: user.role }, process.env.JWT_SECRET_KEY, { expiresIn: process.env.JWT_LIFE_TIME || '7d' })
 }
 

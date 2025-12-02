@@ -6,14 +6,14 @@ const saveTokenInCookie = (res, user) => {
     res.cookie('token', user.token, {
         httpOnly: true,
         maxAge: 1000 * 60 * 60 * 24 * 7,
-        sameSite: 'none', 
+        sameSite: 'none',
         secure: true
     })
 }
 
 export async function register(req, res, next) {
     try {
-        const user = await registerUser(req.body.data)
+        const user = await registerUser(req.body)
 
         saveTokenInCookie(res, user)
 
@@ -26,7 +26,7 @@ export async function register(req, res, next) {
 
 export async function login(req, res, next) {
     try {
-        const user = await loginUser(req.body.formData)
+        const user = await loginUser(req.body)
         saveTokenInCookie(res, user)
         res.status(201).json({ user: user.data })
     } catch (error) {
