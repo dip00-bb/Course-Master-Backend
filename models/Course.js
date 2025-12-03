@@ -5,8 +5,7 @@ const courseSchema = new mongoose.Schema({
   title: { type: String, required: true, index: 'text' },
   description: String,
 
-
-  // instructor: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  instructor: { type: Schema.Types.ObjectId, ref: 'User'},
 
   instructorName: { type: String, required: true, index: true },
 
@@ -16,7 +15,7 @@ const courseSchema = new mongoose.Schema({
 
   category: { type: String, index: true },
 
-  thumbline: { type: String },
+  thumbnail: { type: String },
 
   tags: [{ type: String, index: true }],
 

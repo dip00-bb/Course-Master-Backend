@@ -8,7 +8,7 @@ export async function createCourse(req, res) {
         if (result.success) {
             res.status(200).json({ success: result.success, message: result.message })
         } else {
-            res.status(500).json({ success: result.success, message: result.message })
+            res.status(400).json({ success: result.success, message: result.message })
         }
 
     } catch (error) {

@@ -1,6 +1,6 @@
 import z from "zod";
 
-export const courseSchem=z.object({
+export const courseSchema=z.object({
     title:z.string(),
     description:z.string(),
     instructorName:z.string(),
@@ -13,7 +13,7 @@ export const courseSchem=z.object({
     price:z.int(),
     category:z.string(),
     tags:z.string().array(),
-    lessons:z.string(),
+    lessons:z.array(),
     batches:z.array(
         z.object({
             name:z.string(),
