@@ -1,7 +1,12 @@
 import Course from '../models/Course.js';
+import { buildPagination } from '../utils/pagination.js';
+
+
 
 export async function getHomeCourses(query) {
     try {
+
+        
         console.log(query);
 
         const filter = {};
