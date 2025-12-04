@@ -7,11 +7,11 @@ const courseSchema = new mongoose.Schema({
 
   instructor: { type: Schema.Types.ObjectId, ref: 'User'},
 
-  instructorName: { type: String, required: true, index: true },
+  instructorName: { type: String, required: true, index: true},
 
   syllabus: [{ title: String, description: String }],
 
-  price: { type: Number, required: true, default: 0 },
+  price: { type: Number, required: true, default: 0,index:true },
 
   category: { type: String, index: true },
 

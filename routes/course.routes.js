@@ -1,6 +1,9 @@
 import { Router } from "express";
+import { homeCourses } from "../controllers/course.controller.js";
 
 
-const router=Router()
+const router = Router()
 
-router.post('/')
+router.get('/home-course', homeCourses)
+
+export default router
