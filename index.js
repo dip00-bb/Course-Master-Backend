@@ -9,10 +9,16 @@ const PORT = process.env.PORT || 5000;
 import authRoute from './routes/auth.routes.js'
 import adminRote from './routes/admin.route.js'
 import homeCourses from './routes/course.routes.js'
+import payment from './routes/stripe.route.js'
+import weebhook from './middlewares/stripeweebhook.middleware.js'
+
 const app = express()
+
+app.use('/api/checkout', weebhook)
 
 app.use(express.json())
 app.use(cookieParser())
+
 
 
 app.use(cors({
@@ -29,6 +35,8 @@ app.get('/', (req, res) => {
 app.use('/api/auth', authRoute)
 app.use('/api/admin', adminRote)
 app.use('/api/courses', homeCourses)
+app.use('/api/payment', payment)
+
 
 
 const startServer = async () => {
